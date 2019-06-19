@@ -25,7 +25,7 @@ class BlogsController < ApplicationController
   # POST /blogs
   # POST /blogs.json
   def create
-    @blog = Blog.new(blog_params)
+    @blog = current_user.blogs.build(blog_params)
 
     respond_to do |format|
       if @blog.save
@@ -68,8 +68,16 @@ class BlogsController < ApplicationController
       @blog = Blog.find(params[:id])
     end
 
+    def authorized_user
+      @post = current_user.blogs.find_by(id: params[:id])
+      redirect_to blogs_path, notice: "Not authorized to edit this blog" if @blog.nil?
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def blog_params
       params.require(:blog).permit(:title, :body)
+    end
+    def show_error(msg)
+      render plain: "error|#{msg}" #失败后返回'error|XXXXX'格式的内容
     end
 end
