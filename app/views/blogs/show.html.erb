@@ -6,8 +6,8 @@
 </p>
 
 <p>
-  <strong>Body:</strong>
-  <%== @blog.body %>
+	<%== @blog.created_at.strftime("%B, %d, %Y") %></td>
+	<%== @blog.body %>
 </p>
 
 <%= link_to 'Edit', edit_blog_path(@blog) %> |
