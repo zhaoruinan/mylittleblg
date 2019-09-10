@@ -11,7 +11,9 @@
 
   <body>
      <header class="navbar navbar-fixed-top navbar-inverse">
-      <div class="container">
+      <div class="navbar-inner">
+        <div class="container">
+           <div id="logo" class="navbar-brand"><%= link_to "blogs", root_path %></div>
           <ul class="nav navbar-nav navbar-right">
             <li class=“category”>Social</li>
             <li><%= link_to "@HYU Biorobotics Lab", url_with_protocol("http://biorobotics.hanyang.ac.kr") %> </li>
@@ -20,9 +22,7 @@
             <li><%= link_to "@微博", url_with_protocol("https://weibo.com/u/1245076851?refer_flag=1005055010_") %> </li>
             <li><a href="mailto:z_ruinan@hotmail.com">email:z_ruinan@hotmail.com</a></li>
           </ul>
-      </div>
-    </header>
-
+    <nav class="collapse navbar-collapse navbar-ex1-collapse">
     <% if user_signed_in? %>
       <ul>
         <li><%= link_to 'Submit blog', new_blog_path %></li>
@@ -34,16 +34,23 @@
         <li><%= link_to 'Sign in', new_user_session_path %></li>
       </ul>
     <% end %>
+    </nav>
+         </div>
+    
+      
+        <div id="welcome" class="navbar-brand">I am Ryan Zhao, graduate student majored in robot</div> 
+      
+         </div>  
+    </header>
+<div id="main_content" class="container">
   <% flash.each do |name, msg| %>
       <%= content_tag(:div, msg, class: "alert alert-#{name}") %>
     <% end %>
-        <div id=“sidebar”>
-      <ul>
-        <li class=“category”>I am Ryan Zhao, graduate student majored in robot</li>
-        <li><%= link_to "Blog", root_path %></li>
-        <li>enjoy!</li>
-      </ul>
-
+        
+    <div id="content" class="col-md-9 center-block">
     <%= yield %>
+    </div>
+      </div>
+       </div>
   </body>
 </html>

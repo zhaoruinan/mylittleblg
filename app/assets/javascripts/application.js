@@ -14,6 +14,7 @@
 //= require activestorage
 //= require turbolinks
 //= require jquery
+//= require bootstrap-sprockets
 //= require jquery_ujs
 //= require kindeditor
 //= require_tree .
