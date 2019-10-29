@@ -22,7 +22,7 @@ gem 'mysql2', '~> 0.5.2'
 gem 'jquery-rails'
 gem 'rails_kindeditor'
 gem 'sdoc', '~> 0.4.1',   group: :doc
-gem 'devise', '~> 4.2'
+gem 'devise', '~> 4.7'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
